@@ -1,0 +1,22 @@
+//Group48
+`timescale 1ns / 1ps
+
+module tff_testbench();
+wire Q, Qn;
+reg T, clk;
+
+tff uut(Q, Qn, T, clk);
+
+initial begin
+clk = 0;
+forever #0.5 clk = ~clk;
+end
+
+initial begin
+   T = 0;
+#2 T = 1;
+#2 T = 0;
+#2 $finish;
+end
+
+endmodule
