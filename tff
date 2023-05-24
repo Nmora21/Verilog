@@ -1,0 +1,18 @@
+//Group 48
+`timescale 1ns / 1ps
+
+
+module tff(Q, Qn, T, clk);
+input T, clk;
+output Qn;
+output reg Q; 
+
+initial Q = 0;
+assign Qn = ~Q;
+always @(posedge clk)
+begin
+	if(T) //T == 1
+	Q = ~Q;
+end
+
+endmodule 
