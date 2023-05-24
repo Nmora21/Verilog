@@ -1,0 +1,31 @@
+//Group 48
+`timescale 1ns / 1ps
+
+module decoder_3_to_8_testbench();
+reg E;
+reg [2:0]S;
+wire [7:0]d;
+
+decoder_3_to_8 uut(E, S, d); 
+
+initial begin
+	E = 0; S = 3'b000;
+#1	E = 0; S = 3'b001;
+#1	E = 0; S = 3'b010;
+#1	E = 0; S = 3'b011;
+#1	E = 0; S = 3'b100;
+#1	E = 0; S = 3'b101;
+#1	E = 0; S = 3'b110;
+#1	E = 0; S = 3'b111;
+#1	E = 1; S = 3'b000;
+#1	E = 1; S = 3'b001;
+#1	E = 1; S = 3'b010;
+#1	E = 1; S = 3'b011;
+#1	E = 1; S = 3'b100;
+#1	E = 1; S = 3'b101;
+#1	E = 1; S = 3'b110;
+#1	E = 1; S = 3'b111;
+#1 $finish;
+end
+
+endmodule
