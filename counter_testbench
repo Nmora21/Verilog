@@ -1,0 +1,16 @@
+//Group 48
+`timescale 1ns / 1ps
+
+module counter_testbench();
+wire [2:0]Q;
+reg clk;
+counter uut(Q, clk);
+
+initial begin
+clk = 0;
+forever #0.5 clk =~clk;
+end
+initial begin
+#25 $finish;
+end
+endmodule
