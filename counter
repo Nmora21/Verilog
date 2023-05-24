@@ -1,0 +1,13 @@
+//Group48
+`timescale 1ns / 1ps
+
+module counter(output [2:0]Q, input clk);
+wire [2:0]T;
+wire [2:0]Qn;
+assign T[2] = (Q[1] & Q[0]);
+assign T[1] = (Q[0] | Qn[1]);
+assign T[0] = (Q[2] | (Q[1] & Qn[0]));
+tff tff2(Q[2], Qn[2], T[2], clk);
+tff tff1(Q[1], Qn[1], T[1], clk);
+tff tff0(Q[0], Qn[0], T[0], clk);
+endmodule
