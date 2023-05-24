@@ -1,0 +1,19 @@
+//Group 48
+`timescale 1ns / 1ps
+
+module decoder_3_to_8(input E, [2:0]S, output [7:0]d);
+wire [2:0]notS;
+not not2(notS[2], S[2]);
+not not1(notS[1], S[1]); 
+not not0(notS[0], S[0]);
+
+and and0(d[0], E, notS[2], notS[1], notS[0]);
+and and1(d[1], E, notS[2], notS[1], S[0]);
+and and2(d[2], E, notS[2], S[1], notS[0]);
+and and3(d[3], E, notS[2], S[1], S[0]);
+and and4(d[4], E, S[2], notS[1], notS[0]);
+and and5(d[5], E, S[2], notS[1], S[0]);
+and and6(d[6], E, S[2], S[1], notS[0]);
+and and7(d[7], E, S[2], S[1], S[0]);
+
+endmodule
